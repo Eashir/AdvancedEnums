@@ -20,9 +20,17 @@ enum Player: HealthBar {
 	}
 	
 	mutating func increaseHP() {
+		switch self {
+		case .dead:
+			self = .alive(currentHealth: 1)
+		case let .alive(numberOfHearts):
+			self = .alive(currentHealth: numberOfHearts + 1)
+		}
 	}
 	
 	mutating func reduceHP() {
 		
 	}
 }
+
+var state = Player.dead.numberOfHearts
