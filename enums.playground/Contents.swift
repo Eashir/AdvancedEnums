@@ -29,8 +29,18 @@ enum Player: HealthBar {
 	}
 	
 	mutating func reduceHP() {
-		
+		switch self {
+		case .dead:
+			break
+		case let .alive(numberOfHearts):
+			if numberOfHearts == 1 {
+				self = .dead
+			} else {
+				self = .alive(currentHealth: numberOfHearts - 1)
+			}
+		}
 	}
+	
 }
 
 var state = Player.dead.numberOfHearts
