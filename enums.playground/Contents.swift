@@ -43,4 +43,10 @@ enum Player: HealthBar {
 	
 }
 
-var state = Player.dead.numberOfHearts
+var state = Player.dead
+state.increaseHP()
+state.numberOfHearts
+state.increaseHP()
+state.reduceHP()
+state.reduceHP()
+state.numberOfHearts
