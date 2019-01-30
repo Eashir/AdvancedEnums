@@ -50,3 +50,25 @@ state.increaseHP()
 state.reduceHP()
 state.reduceHP()
 state.numberOfHearts
+
+
+
+
+enum GameAction {
+	case Start
+	case Pause
+	case Stop
+	case Restart(delay: Int)
+}
+
+func ==(lhs: GameAction, rhs: GameAction) -> Bool {
+	switch (lhs, rhs) {
+	case (.Start, .Start), (.Pause, .Pause), (.Stop, .Stop):
+		return true
+	case let (.Restart(lhsDelay), .Restart(delay: rhsDelay)):
+		return lhsDelay = rhsDelay
+	default:
+		return false
+	}
+}
+
