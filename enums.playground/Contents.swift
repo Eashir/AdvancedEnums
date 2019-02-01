@@ -40,7 +40,6 @@ enum Player: HealthBar {
 			}
 		}
 	}
-	
 }
 
 var state = Player.dead
@@ -72,3 +71,23 @@ func ==(lhs: GameAction, rhs: GameAction) -> Bool {
 	}
 }
 
+
+struct Character {
+	
+	enum CharacterType {
+		case rogue
+		case mage
+		case warrior
+	}
+	
+	enum Skill {
+		case fireball
+		case windslash
+		case silentstrike
+	}
+	
+	let type: PlayerType
+	let skill: Skill
+}
+
+let Alexander = Character(type: CharacterType.mage, skill: Skill.fireball)
